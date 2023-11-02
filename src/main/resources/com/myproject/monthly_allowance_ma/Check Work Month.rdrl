@@ -1,0 +1,12 @@
+package com.myproject.monthly_allowance_ma;
+
+import java.lang.Number;
+
+rule "Check Work Month"
+	ruleflow-group "Check Work Month"
+	dialect "mvel"
+	when
+		checkWorkMonth : Agent_Data_Object( work_month > 12 )
+	then
+		checkWorkMonth.setError( "Work month greater than 12" );
+end

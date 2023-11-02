@@ -1,0 +1,12 @@
+package com.myproject.monthly_allowance_ma;
+
+import java.lang.Number;
+
+rule "Check Production agent eques Servicing agent"
+	ruleflow-group "Check Production Eques Servicing"
+	dialect "mvel"
+	when
+		productionEquesServicing : Agent_Data_Object( production_agent != productionEquesServicing.servicing_agent )
+	then
+		productionEquesServicing.setError( "Production agent Not Equal Servicing agent" );
+end

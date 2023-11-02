@@ -1,0 +1,12 @@
+package com.myproject.monthly_allowance_ma;
+
+import java.lang.Number;
+
+rule "Check Agent position"
+	ruleflow-group "Check agent position"
+	dialect "mvel"
+	when
+		checkAgentPosition : Agent_Data_Object( agent_position != "FP" )
+	then
+		checkAgentPosition.setError( "Agent Position not equal FP" );
+end

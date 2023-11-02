@@ -1,0 +1,12 @@
+package com.myproject.monthly_allowance_ma;
+
+import java.lang.Number;
+
+rule "Check Recal"
+	ruleflow-group "Check Recal"
+	dialect "mvel"
+	when
+		checkRecal : Agent_Data_Object( recal != "true" )
+	then
+		checkRecal.setError( "Recal not equal true " );
+end
